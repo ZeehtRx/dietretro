@@ -1078,26 +1078,280 @@
     to { opacity: 1; transform: translateY(0); }
   }
 
-  @media (max-width: 780px) {
-    .auth-left { display: none; }
-    .auth-right { padding: 24px 20px; }
+  /* ============================================
+     RESPONSIVE — ALL DEVICES
+     Breakpoints:
+       xl  : 1280px+   (large desktop)
+       lg  : 1024–1279 (desktop)
+       md  : 768–1023  (tablet landscape)
+       sm  : 480–767   (tablet portrait / large phone)
+       xs  : <480      (mobile)
+  ============================================ */
+
+  /* ── TABLET LANDSCAPE (md) ── */
+  @media (max-width: 1023px) {
+    /* AUTH */
+    .auth-left { width: 320px; padding: 28px 20px; }
+    .auth-logo { font-size: 20px; }
+    .pixel-character { width: 120px; height: 120px; }
+    .auth-features { gap: 7px; }
+    .auth-feature-item { font-size: 15px; padding: 6px 10px; }
+
+    /* HEADER */
+    #header { padding: 0 16px; }
+    .logo { font-size: 11px; }
+    nav a { font-size: 6px; padding: 5px 8px; }
+
+    /* SIDEBAR */
+    #sidebar { width: 180px; padding: 16px 10px; }
+    .sidebar-title { font-size: 7px; }
+    .sidebar-item { font-size: 16px; }
+
+    /* HERO */
+    .hero-text h1 { font-size: 16px; }
+    #hero { padding: 20px 16px; }
+
+    /* CONTENT */
+    #content { padding: 16px; }
+    .recipe-grid { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); }
   }
 
-  /* Responsive */
-  @media (max-width: 700px) {
-    #sidebar { display: none; }
+  /* ── TABLET PORTRAIT (sm) ── */
+  @media (max-width: 767px) {
+    /* AUTH — hide left panel, show compact top bar instead */
+    .auth-left { display: none; }
+    .auth-right { padding: 28px 24px; }
+    .auth-layout { height: auto; min-height: 100vh; }
+    /* Show small auth top bar on mobile */
+    .auth-mobile-top {
+      display: flex !important;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: var(--peach);
+      border-bottom: 3px solid var(--pixel-black);
+      padding: 12px 20px;
+    }
+    .auth-mobile-logo {
+      font-family: 'Press Start 2P', monospace;
+      font-size: 13px;
+      color: var(--pixel-black);
+    }
+    .auth-mobile-logo span { color: var(--coral-dark); }
+
+    /* HEADER - hide text nav, show hamburger area */
+    #header { height: 54px; padding: 0 14px; }
+    .logo { font-size: 10px; gap: 7px; }
+    .logo-icon { width: 26px; height: 26px; grid-template-columns: repeat(4,6.5px); grid-template-rows: repeat(4,6.5px); }
+    nav a:not(.nav-login) { display: none; }
+    .nav-login { font-size: 6px !important; padding: 5px 8px !important; }
+
+    /* MOBILE BOTTOM NAV */
+    #mobile-bottom-nav { display: flex !important; }
+
+    /* HERO - compact */
+    #hero { padding: 16px 14px; flex-direction: column; gap: 12px; align-items: flex-start; }
     .hero-art { display: none; }
-    .recipe-grid { grid-template-columns: 1fr; }
+    .hero-text h1 { font-size: 14px; }
+    .hero-text p { font-size: 18px; margin-bottom: 10px; }
+    .hero-stats { gap: 8px; }
+    .stat-chip { font-size: 6px; padding: 4px 8px; }
+
+    /* MAIN LAYOUT - stack vertically */
+    #main { flex-direction: column; }
+    #sidebar { display: none; } /* replaced by bottom nav */
+    #content { padding: 14px; padding-bottom: 80px; /* room for bottom nav */ }
+
+    /* SECTION HEADER */
+    .section-header { flex-wrap: wrap; gap: 8px; }
+    .section-title { font-size: 10px; }
+
+    /* TABS - scrollable */
+    .section-tabs { overflow-x: auto; flex-wrap: nowrap; }
+    .section-tab { min-width: 80px; font-size: 6px; padding: 8px 4px; flex-shrink: 0; }
+
+    /* RECIPE GRID */
+    .recipe-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+    .recipe-card-title { font-size: 7px; }
+
+    /* MEAL PREP TABLE — scrollable */
+    #tab-mealprep { overflow-x: auto; }
+    .meal-prep-table { font-size: 15px; min-width: 560px; }
+    .meal-prep-table th { font-size: 6px; padding: 7px 8px; }
+    .meal-prep-table td { padding: 6px 8px; }
+
+    /* AI TIPS */
+    #ai-tips { flex-direction: column; gap: 10px; padding: 14px 14px; }
+    .tips-label { font-size: 7px; padding: 6px 10px; }
+    .tips-content p { font-size: 18px; }
+
+    /* FOOTER */
+    #footer { flex-direction: column; gap: 8px; padding: 12px 14px; text-align: center; align-items: center; }
+    .footer-text { font-size: 6px; }
+
+    /* MODAL */
+    .modal-box { padding: 20px 16px; }
+    .recipe-modal-box { width: 95vw; max-height: 88vh; }
+
+    /* FORM */
     .form-row { grid-template-columns: 1fr; }
-    nav a { display: none; }
-    nav a.nav-login { display: block; }
+
+    /* CHART */
+    #chart-section { padding: 12px; }
+    .pixel-chart { height: 80px; }
   }
+
+  /* ── MOBILE (xs) ── */
+  @media (max-width: 479px) {
+    /* AUTH */
+    .auth-card-title { font-size: 11px; }
+    .auth-tab { font-size: 7px; padding: 9px 6px; }
+    .auth-right { padding: 20px 16px; }
+
+    /* HEADER */
+    #header { height: 50px; }
+    .logo { font-size: 9px; }
+    .logo-icon { display: none; }
+
+    /* HERO */
+    .hero-text h1 { font-size: 12px; }
+    .stat-chip { font-size: 5.5px; }
+
+    /* RECIPE GRID — single column */
+    .recipe-grid { grid-template-columns: 1fr; gap: 10px; }
+
+    /* SECTION TITLE */
+    .section-title { font-size: 9px; }
+    .section-badge { font-size: 13px; }
+
+    /* SECTION TABS */
+    .section-tab { font-size: 5.5px; min-width: 68px; padding: 7px 3px; }
+
+    /* BTN */
+    .btn-pixel { font-size: 7px; padding: 7px 10px; }
+
+    /* MACRO */
+    .macro strong { font-size: 7px; }
+    .macro span { font-size: 12px; }
+
+    /* MODAL */
+    .modal-box { padding: 16px 14px; }
+    .modal-title { font-size: 9px; }
+
+    /* MEAL PREP TABLE */
+    .meal-prep-table { font-size: 13px; min-width: 500px; }
+
+    /* AI TIPS */
+    .tips-label { font-size: 6px; }
+
+    /* FOOTER */
+    .pixel-progress { display: none; }
+  }
+
+  /* ── LARGE DESKTOP (xl) ── */
+  @media (min-width: 1280px) {
+    #header { padding: 0 40px; }
+    #hero { padding: 32px 40px; }
+    #sidebar { width: 240px; }
+    #content { padding: 28px 32px; }
+    .recipe-grid { grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); }
+    .hero-text h1 { font-size: 26px; }
+  }
+
+  /* ── MOBILE BOTTOM NAV (hidden on desktop) ── */
+  #mobile-bottom-nav {
+    display: none;
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    z-index: 90;
+    background: var(--white);
+    border-top: 3px solid var(--pixel-black);
+    box-shadow: 0 -3px 0 var(--pixel-black);
+    height: 62px;
+  }
+  .mob-nav-inner {
+    display: flex;
+    height: 100%;
+  }
+  .mob-nav-btn {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    background: none;
+    border: none;
+    border-right: 2px solid var(--pixel-black);
+    cursor: pointer;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 5.5px;
+    color: var(--pixel-gray);
+    padding: 6px 2px;
+    transition: background 0.05s;
+    line-height: 1.4;
+  }
+  .mob-nav-btn:last-child { border-right: none; }
+  .mob-nav-btn .mob-icon { font-size: 20px; line-height: 1; }
+  .mob-nav-btn.active { background: var(--peach-pale); color: var(--pixel-black); }
+  .mob-nav-btn:active { background: var(--peach); }
+
+  /* Mobile sidebar drawer */
+  #mobile-drawer {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 150;
+  }
+  #mobile-drawer.open { display: block; }
+  .drawer-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+  }
+  .drawer-panel {
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 240px;
+    background: var(--lilac-pale);
+    border-right: 4px solid var(--pixel-black);
+    box-shadow: 6px 0 0 var(--pixel-black);
+    padding: 20px 14px;
+    overflow-y: auto;
+    animation: slide-in 0.18s ease;
+  }
+  @keyframes slide-in {
+    from { transform: translateX(-100%); }
+    to { transform: translateX(0); }
+  }
+  .drawer-close {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 8px;
+    background: var(--coral);
+    border: 2px solid var(--pixel-black);
+    box-shadow: var(--shadow-sm);
+    color: white;
+    padding: 5px 10px;
+    cursor: pointer;
+    margin-bottom: 16px;
+    width: 100%;
+    text-align: right;
+  }
+
+  /* AUTH mobile top strip (hidden on desktop) */
+  .auth-mobile-top { display: none; }
+
 </style>
 </head>
 <body>
 
 <!-- ============ AUTH SCREEN ============ -->
 <div id="auth-screen">
+  <!-- Mobile-only top bar (shown instead of left panel) -->
+  <div class="auth-mobile-top">
+    <div class="auth-mobile-logo">PIXEL<span>EAT</span></div>
+    <span style="font-family:'VT323',monospace;font-size:18px;color:var(--pixel-gray)">🥗 Diet. Sehat. Pixel Perfect.</span>
+  </div>
   <div class="auth-layout">
 
     <!-- LEFT DECORATIVE PANEL -->
@@ -1257,7 +1511,7 @@
       </div>
     </div>
 
-  </div>
+  </div><!-- end auth-layout -->
 </div>
 <!-- END AUTH SCREEN -->
 
@@ -1282,6 +1536,64 @@
     <a class="nav-login" id="loginNavBtn" onclick="openLogin()">👤 Login</a>
   </nav>
 </header>
+
+<!-- ============ MOBILE BOTTOM NAV ============ -->
+<div id="mobile-bottom-nav">
+  <div class="mob-nav-inner">
+    <button class="mob-nav-btn active" id="mob-food" onclick="mobileNav('food')">
+      <span class="mob-icon">🥗</span>FOOD
+    </button>
+    <button class="mob-nav-btn" id="mob-mealprep" onclick="mobileNav('mealprep')">
+      <span class="mob-icon">📊</span>MEAL PREP
+    </button>
+    <button class="mob-nav-btn" id="mob-add" onclick="mobileNav('add')">
+      <span class="mob-icon">✚</span>TAMBAH
+    </button>
+    <button class="mob-nav-btn" id="mob-menu" onclick="openDrawer()">
+      <span class="mob-icon">☰</span>MENU
+    </button>
+  </div>
+</div>
+
+<!-- ============ MOBILE DRAWER ============ -->
+<div id="mobile-drawer">
+  <div class="drawer-overlay" onclick="closeDrawer()"></div>
+  <div class="drawer-panel">
+    <button class="drawer-close" onclick="closeDrawer()">✕ TUTUP</button>
+
+    <div class="sidebar-section">
+      <span class="sidebar-title">🍽️ FOOD &amp; BEV</span>
+      <button class="sidebar-item active" id="dr-snacks" onclick="filterCategory('snacks','dr-snacks');closeDrawer()">
+        <div class="dot dot-peach"></div> Snacks
+      </button>
+      <button class="sidebar-item" id="dr-main" onclick="filterCategory('main','dr-main');closeDrawer()">
+        <div class="dot dot-coral"></div> Main Course
+      </button>
+      <button class="sidebar-item" id="dr-dessert" onclick="filterCategory('dessert','dr-dessert');closeDrawer()">
+        <div class="dot dot-lilac"></div> Desserts
+      </button>
+      <button class="sidebar-item" id="dr-drink" onclick="filterCategory('drink','dr-drink');closeDrawer()">
+        <div class="dot dot-blue"></div> Minuman
+      </button>
+    </div>
+
+    <div class="sidebar-section">
+      <span class="sidebar-title">📊 MEAL PREP</span>
+      <button class="sidebar-item" id="dr-protein" onclick="goMealPrep('protein');closeDrawer()">
+        <div class="dot dot-blue"></div> ↑ Protein
+      </button>
+      <button class="sidebar-item" id="dr-calorie" onclick="goMealPrep('calorie');closeDrawer()">
+        <div class="dot dot-peach"></div> ↓ Kalori
+      </button>
+    </div>
+
+    <div class="sidebar-section">
+      <span class="sidebar-title">👤 AKUN</span>
+      <div id="drawerUserInfo" style="font-family:'VT323',monospace;font-size:18px;padding:8px 10px;border:2px solid var(--pixel-black);background:var(--white);margin-bottom:8px;"></div>
+      <button class="btn-pixel btn-coral" style="width:100%;font-size:7px;" id="drawerLogoutBtn" onclick="doLogout();closeDrawer()">⏻ LOGOUT</button>
+    </div>
+  </div>
+</div>
 
 <!-- ============ LETTUCE — HERO ============ -->
 <section id="hero" class="dot-bg">
@@ -1647,10 +1959,15 @@ function showTab(tab) {
   ['food','mealprep','add'].forEach(t => {
     document.getElementById('tab-'+t).style.display = t===tab ? 'block' : 'none';
   });
-  // Update nav
+  // Update desktop nav
   document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
   const navEl = document.getElementById('nav-'+tab);
   if (navEl) navEl.classList.add('active');
+  // Update mobile bottom nav
+  ['food','mealprep','add'].forEach(t => {
+    const btn = document.getElementById('mob-'+t);
+    if (btn) btn.classList.toggle('active', t === tab);
+  });
   if (tab === 'mealprep') { renderMealPrep(); renderChart(); }
 }
 
@@ -1841,6 +2158,33 @@ function showToast(msg) {
 // ===== CLOSE MODALS ON OVERLAY CLICK =====
 document.getElementById('loginModal').addEventListener('click', function(e) { if (e.target === this) closeLogin(); });
 document.getElementById('recipeModal').addEventListener('click', function(e) { if (e.target === this) closeRecipeModal(); });
+
+// ===== MOBILE BOTTOM NAV =====
+function mobileNav(tab) {
+  ['food','mealprep','add','menu'].forEach(t => {
+    const el = document.getElementById('mob-' + t);
+    if (el) el.classList.remove('active');
+  });
+  const el = document.getElementById('mob-' + tab);
+  if (el) el.classList.add('active');
+  showTab(tab);
+}
+
+function openDrawer() {
+  document.getElementById('mobile-drawer').classList.add('open');
+  document.body.style.overflow = 'hidden';
+  // Update user info in drawer
+  const info = document.getElementById('drawerUserInfo');
+  if (currentUser) {
+    info.innerHTML = `<strong>👤 ${currentUser.toUpperCase()}</strong><br><span style="font-size:14px;color:var(--pixel-gray)">Logged in</span>`;
+  } else {
+    info.innerHTML = `<span style="font-size:14px;color:var(--pixel-gray)">Belum login</span>`;
+  }
+}
+function closeDrawer() {
+  document.getElementById('mobile-drawer').classList.remove('open');
+  document.body.style.overflow = '';
+}
 
 // ===========================
 // ===== AUTH SCREEN JS =====
